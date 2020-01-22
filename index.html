@@ -8,40 +8,52 @@
 		<link rel="stylesheet" href="css/bootstrap-4/css/bootstrap.min.css" />
 	</head>
 	<body>
-		<script src="js/app.js"></script>
 		<div class="container">
 			<div class="row mt-5">
-				<form id="operation-form">
-					<div class="form-group row">
-						<label for="valueA" class="col-md-4 col-form-label">Value A:</label>
-						<div class="col-md-8">
-							<input type="test" class="form-control" id="valueA" placeholder="Value A" />
+				<div class="col-md-6">
+					<form id="operation-form">
+						<div class="form-group row">
+							<label for="valueA" class="col-md-4 col-form-label">Value A:</label>
+							<div class="col-md-8">
+								<input type="test" class="form-control" id="valueA" placeholder="Value A" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="valueB" class="col-md-4 col-form-label">Value B:</label>
+							<div class="col-md-8">
+								<input type="test" class="form-control" id="valueB" placeholder="Value B" />
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="typeOperation" class="col-md-4 col-form-label">Operation</label>
+							<div class="col-md-8">
+								<select class="form-control" id="typeOperation">
+									<option value="sum">Sum</option>
+									<option value="subtraction">Subtraction</option>
+									<option value="multiplication">Multiplication</option>
+									<option value="division">Division</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group row float-right">
+							<div class="col-md-10">
+								<button type="submit" class="btn btn-primary" id="result">Result</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-6">
+					<div class="alert alert-success" role="alert">
+						<h4 class="alert-heading text-center">El resultado de la operación</h4>
+						<h4 id="type-operation" class="text-center">sum</h4>
+						<div class="center-block">
+							<hr />
+							<h2 id="result-operation" class="text-center">0</h2>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="valueB" class="col-md-4 col-form-label">Value B:</label>
-						<div class="col-md-8">
-							<input type="test" class="form-control" id="valueB" placeholder="Value B" />
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="typeOperation" class="col-md-4 col-form-label">Operation</label>
-						<div class="col-md-8">
-							<select class="form-control" id="typeOperation">
-								<option value="sum">Sum</option>
-								<option value="subtraction">Subtraction</option>
-								<option value="multiplication">Multiplication</option>
-								<option value="division">Division</option>
-							</select>
-						</div>
-					</div>
-					<div class="form-group row">
-						<div class="col-md-10">
-							<button type="submit" class="btn btn-primary" id="result">Result</button>
-						</div>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
+		<script src="js/app.js"></script>
 	</body>
 </html>
