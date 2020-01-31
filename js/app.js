@@ -6,20 +6,43 @@
 // const valorA = true;
 // const valorB = false;
 
-console.log('');
+class Operation {
+	constructor(valueA, valueB, typeOperation) {
+		this.valueA = parseInt(valueA);
+		this.valueB = parseInt(valueB);
+		this.typeOperation = typeOperation;
+	}
+
+	resultOperation() {
+		if (this.typeOperation == 'sum') {
+			return this.valueA + this.valueB;
+		}
+		if (this.typeOperation == 'subtraction') {
+			return this.valueA - this.valueB;
+		}
+		if (this.typeOperation == 'multiplication') {
+			return this.valueA * this.valueB;
+		}
+		if (this.typeOperation == 'division') {
+			return this.valueA / this.valueB;
+		}
+	}
+
+	muestraValor() {
+		return `Variables de la operación: ValorA ${this.valueA} - - valueB ${this.valueB}`;
+	}
+}
 
 document.addEventListener('submit', (e) => {
 	e.preventDefault();
 
+	//instantiation de las variables
 	let valueA = document.getElementById('valueA').value;
 	let valueB = document.getElementById('valueB');
-
 	let typeOperation = document.getElementById('typeOperation');
-
 	let resultOperation = 0;
 
-	// valueA = tienen nurmero = true
-	// valueA = vacio = false
+	// validations
 	if (!valueA || !valueB.value) {
 		alert('El campo es requerido');
 		return;
@@ -28,35 +51,20 @@ document.addEventListener('submit', (e) => {
 		alert('No se puede divider entre 0');
 		return;
 	}
-
 	if (!/^([0-9])*$/.test(valueA) || !/^([0-9])*$/.test(valueB.value)) {
 		alert('Ingrese solo número');
 		return;
 	}
 
-	if (typeOperation.value == 'sum') {
-		resultOperation = parseInt(valueA) + parseInt(valueB.value);
-	}
+	//instantiation de la clase
+	let operation = new Operation(valueA, valueB.value, typeOperation.value);
+	resultOperation = operation.resultOperation();
 
-	if (typeOperation.value == 'subtraction') {
-		resultOperation = parseInt(valueA) - parseInt(valueB.value);
-	}
-
-	if (typeOperation.value == 'multiplication') {
-		resultOperation = parseInt(valueA) * parseInt(valueB.value);
-	}
-
-	if (typeOperation.value == 'division') {
-		resultOperation = parseInt(valueA) / parseInt(valueB.value);
-	}
-
+	// mostrar resultado
 	document.getElementById('type-operation').innerHTML = typeOperation.value;
-
 	document.getElementById('result-operation').innerHTML = resultOperation;
-
-	console.log('el resultado de la operacion');
 });
 
-// No recomendable
+// Not recommendable
 // console.log(valorA + ' -' + valorB);
 // console.log(`${valorA} - ${valorB}`);
